@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-let base = 'http://10.0.23.62:8081/db-manager';
+let base = '';
+let remoteUrl='http://10.0.23.62:8081/db-manager'
 
 export const requestLogin = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
 
@@ -18,4 +19,7 @@ export const addUser = params => { return axios.get(`${base}/user/add`, { params
 
 
 //添加SQL语句
-export const addSqlModel = params => { return axios.post(`${base}/dbmanager/addSqlModel.do`, { params: params }); };
+export const addSqlModel = params => { return axios.post(`${remoteUrl}/dbmanager/addSqlModel.do`, params).then(res=>res.data)};
+
+//查询SQL语句
+export const querySqlModel=params=>{return axios.post(`${remoteUrl}/dbmanager/querySqlModel.do`, params).then(res=>res.data)};
