@@ -7,7 +7,7 @@
     <el-input v-model="searchForm.memberName" style="width:215px"></el-input>
   </el-form-item>
 
-  <div class="" v-for="(p,index) in searchForm.sqlParams">
+  <div class="" v-for="(p,index) in searchForm.parameters">
 	  <el-form-item :label="p"  prop="sqlParamValues">
 	    <el-input v-model="searchForm.sqlParamValues" style="width:215px"></el-input>
 	  </el-form-item>
@@ -34,7 +34,7 @@ export default {
 		return {
 			searchForm:{
 				memberName:'一个商户',
-				sqlParams:['name','address','email'],
+				parameters:['name','address','email'],
 				sqlParamValues:[]
 			},
 			rules:{
