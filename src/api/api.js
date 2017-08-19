@@ -2,6 +2,7 @@ import axios from 'axios';
 
 let base = '';
 let remoteUrl='http://10.0.23.62:8081/db-manager'
+// let remoteUrl='localhost:8080/db-manager'
 
 export const requestLogin = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
 
@@ -23,3 +24,10 @@ export const addSqlModel = params => { return axios.post(`${remoteUrl}/dbmanager
 
 //查询SQL语句
 export const querySqlModel=params=>{return axios.post(`${remoteUrl}/dbmanager/querySqlModel.do`, params).then(res=>res.data)};
+
+//删除SQL语句
+export const delSqlModel=params=>{return axios.post(`${remoteUrl}/dbmanager/delSqlModel.do`, params).then(res=>res.data)};
+
+
+//查询SQL语句的所有商户
+export const queryMemberName=params=>{return axios.get(`${remoteUrl}/dbmanager/queryMemberName.do`, {params}).then(res=>res.data)};

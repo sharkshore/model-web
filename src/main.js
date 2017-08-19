@@ -21,7 +21,8 @@ Vue.use(Vuex)
 //NProgress.configure({ showSpinner: false });
 
 const router = new VueRouter({
-  routes
+    mode: 'history',
+    routes
 })
 
 // router.beforeEach((to, from, next) => {
@@ -38,17 +39,15 @@ const router = new VueRouter({
 // })
 
 
-
-
 //router.afterEach(transition => {
 //NProgress.done();
 //});
 
 new Vue({
-  //el: '#app',
-  //template: '<App/>',
-  router,
-  store,
-  //components: { App }
-  render: h => h(App)
+    //el: '#app',
+    //template: '<App/>',
+    router,
+    store,
+    //components: { App }
+    render: h => h(App)
 }).$mount('#app')

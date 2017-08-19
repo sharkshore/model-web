@@ -1,5 +1,4 @@
 <template lang="html">
-	<div class="">
 
 <el-table :data="tableData" border style="width: 100%">
     <el-table-column prop="MEMBER_NAME" label="商户名称" width="180"> </el-table-column>
@@ -9,16 +8,21 @@
     <el-table-column prop="MSG" label="备注"> </el-table-column>
     <el-table-column prop="USER_NAME" label="用户"> </el-table-column>
     <el-table-column prop="CREATE_TIME" label="创建日期" width="180"> </el-table-column>
+    <el-table-column label="操作" >
+
+     <template scope="scope">
+        <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+      </template>
+
+    </el-table-column>
+
   </el-table>
 
-	</div>
 
 </template>
 
 <script>
-import {
-	querySqlModel
-} from '../../api/api';
+import { querySqlModel  ,delSqlModel } from '../../api/api';
 
 export default {
 	data() {
@@ -30,9 +34,7 @@ export default {
 	methods: {
 		getSqlList() {
 			querySqlModel({}).then(res => {
-					console.log(res);
 				if (res.success) {
-					console.log(res.data);
 					this.tableData = res.data
 				} else {
 					this.$message.error(res.errorMsg)
@@ -40,7 +42,18 @@ export default {
 			}).catch(err => {
 				console.log(err)
 			})
-		}
+		},
+        handleDelete(index,row){
+            delSqlModel({id:row.ID}).then(res => {
+                if (res.success) {
+                    this.getSqlList();
+                } else {
+                    this.$message.error(res.errorMsg)
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+        }
 	},
 
 	mounted() {

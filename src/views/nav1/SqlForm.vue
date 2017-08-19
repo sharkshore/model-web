@@ -114,8 +114,10 @@ export default {
                         ...this.ruleForm,
                         parameters:this.ruleForm.parameters.join(',')
                     };
+					//添加SQL语句
 					addSqlModel(params).then((res) => {
                         this.$message('您已成功插入一条记录')
+                        this.$router.push({ path: '/sqllist' });
 					})
                     .catch(res=>{
                         this.$message.error('插入失败,请重新插入')
