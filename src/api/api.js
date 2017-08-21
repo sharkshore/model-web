@@ -28,6 +28,16 @@ export const querySqlModel=params=>{return axios.post(`${remoteUrl}/dbmanager/qu
 //删除SQL语句
 export const delSqlModel=params=>{return axios.post(`${remoteUrl}/dbmanager/delSqlModel.do`, params).then(res=>res.data)};
 
-
 //查询SQL语句的所有商户
 export const queryMemberName=params=>{return axios.get(`${remoteUrl}/dbmanager/queryMemberName.do`, {params}).then(res=>res.data)};
+
+//执行SQL的语句
+export const executeSql=params=>{return axios.post(`${remoteUrl}/dbmanager/execSql.do`, params).then(res=>res.data)};
+
+//获取执行SQL的语句中间结果
+export const getProcessResult=params=>{return axios.post(`${remoteUrl}/dbmanager/getProcessResult.do`, params).then(res=>res.data)};
+
+
+
+
+

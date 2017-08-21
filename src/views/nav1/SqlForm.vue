@@ -7,10 +7,7 @@
   </el-form-item>
 
   <el-form-item label="分类" prop="execType">
-    <el-select v-model="ruleForm.execType" placeholder="请选择分类">
-      <el-option label="区域一" value="shanghai"></el-option>
-      <el-option label="区域二" value="beijing"></el-option>
-    </el-select>
+    <el-input v-model="ruleForm.execType" style="width:215px"></el-input>
   </el-form-item>
 
   <el-form-item label="详情" prop="sqlDetail">
@@ -33,16 +30,15 @@
     <el-input type="textarea" v-model="ruleForm.execSql" :rows="rows"></el-input>
   </el-form-item>
 
+
   <el-form-item label="备注信息" prop="msg">
     <el-input type="textarea" v-model="ruleForm.msg"></el-input>
   </el-form-item>
 
   <el-form-item label="提交人" prop="userName">
-    <el-select v-model="ruleForm.userName" placeholder="请选择提交人">
-      <el-option label="涂泽" value="tuze"></el-option>
-      <el-option label="付刚" value="fugang"></el-option>
-    </el-select>
+    <el-input v-model="ruleForm.userName" style="width:215px"></el-input>
   </el-form-item>
+
 
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
